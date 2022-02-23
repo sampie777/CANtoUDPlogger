@@ -20,10 +20,10 @@ void CANBuffer::push(CAN_Message message) {
 bool CANBuffer::isUnique(CAN_Message message) {
     // Get last message ID index
     int lastMessageIndex = -1;
-    for (i = 0; i < BUFFER_SIZE; i++) {
+    for (int i = 0; i < BUFFER_SIZE; i++) {
         int j = addIndex - 1 - i;
         while (j < 0) {
-            j += BUFFER_SIZE
+            j += BUFFER_SIZE;
         }
 
         if (buffer[j].id == message.id) {
@@ -37,12 +37,12 @@ bool CANBuffer::isUnique(CAN_Message message) {
     }
 
     // Compare last message with new message
-    if (message->len != buffer[lastMessageIndex].len) {
+    if (message.len != buffer[lastMessageIndex].len) {
         return true;
     }
 
-    for (uint8_t i = 0; i < message->len; i++) {
-        if (message->rxBuf[i] != buffer[lastMessageIndex].rxBuf[i]) {
+    for (uint8_t i = 0; i < message.len; i++) {
+        if (message.rxBuf[i] != buffer[lastMessageIndex].rxBuf[i]) {
             return true;
         }
     }

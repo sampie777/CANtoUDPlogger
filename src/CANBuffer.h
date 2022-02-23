@@ -14,6 +14,8 @@ public:
     void push(CAN_Message message);
     bool isUnique(CAN_Message message);
     uint8_t unreadCount();
+    uint8_t getAddIndex() { return addIndex; }
+    uint8_t getReadIndex() { return readIndex; }
     CAN_Message pop();
 
 private:

@@ -13,6 +13,7 @@
 
 class NetworkLogger {
 public:
+    NetworkLogger() : udp() {}
     void setup();
     void ping();
     void loop();

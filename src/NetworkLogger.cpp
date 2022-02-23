@@ -54,21 +54,21 @@ void NetworkLogger::loop() {
     AsyncUDPMessage udpMessage(SEND_BUFFER_SIZE * (sizeof(char*) + sizeof(CAN_Message)));
     for (int i = 0; i < SEND_BUFFER_SIZE; i++) {
         CAN_Message message = canBuffer.pop();
-        udpMessage.write(message.timestamp >> 3 * 8);
-        udpMessage.write(message.timestamp >> 2 * 8);
-        udpMessage.write(message.timestamp >> 1 * 8);
-        udpMessage.write(message.timestamp >> 0 * 8);
+        udpMessage.write(message.timestamp >> (3 * 8));
+        udpMessage.write(message.timestamp >> (2 * 8));
+        udpMessage.write(message.timestamp >> (1 * 8));
+        udpMessage.write(message.timestamp >> (0 * 8));
 
-        udpMessage.write(message.id >> 3 * 8);
-        udpMessage.write(message.id >> 2 * 8);
-        udpMessage.write(message.id >> 1 * 8);
-        udpMessage.write(message.id >> 0 * 8);
+        udpMessage.write(message.id >> (3 * 8));
+        udpMessage.write(message.id >> (2 * 8));
+        udpMessage.write(message.id >> (1 * 8));
+        udpMessage.write(message.id >> (0 * 8));
 
         udpMessage.write(message.len);
 
         udpMessage.write(message.rxBuf, 8);
 
-        udpMessage.write('\0');
+        udpMessage.write(';');
     }
 
     udp.broadcast(udpMessage);

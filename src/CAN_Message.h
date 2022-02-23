@@ -9,7 +9,7 @@
 
 class CAN_Message {
 public:
-    CAN_Message(unsigned long timestamp, unsigned long id, uint8_t len, const uint8_t *rxBuf) : id(id), len(len) {
+    CAN_Message(unsigned long timestamp, unsigned long id, uint8_t len, const uint8_t *rxBuf) : timestamp(timestamp), id(id), len(len) {
         memcpy(this->rxBuf, rxBuf, sizeof(this->rxBuf));
     }
 
