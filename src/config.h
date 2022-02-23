@@ -5,6 +5,8 @@
 #ifndef CANTOUDPLOGGER_CONFIG_H
 #define CANTOUDPLOGGER_CONFIG_H
 
+#define OFFLINE false
+
 #define WIFI_SSID "ESP32 CAN"
 #define WIFI_PASSWORD ""
 #define UDP_PORT 2302
@@ -15,6 +17,6 @@
 #define CAN0_CS 15
 
 #define BUFFER_SIZE 64
-#define SEND_BUFFER_SIZE 16
+#define SEND_BUFFER_SIZE 24
 
 #endif //CANTOUDPLOGGER_CONFIG_H
