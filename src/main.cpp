@@ -1,8 +1,22 @@
+#include "config.h"
 #include <Arduino.h>
+#include "NetworkLogger.h"
+#include "CANReader.h"
+
+NetworkLogger networkLogger;
+CANReader canReader;
+
 void setup() {
-// write your initialization code here
+    Serial.begin(115200);
+    Serial.println("Setting up");
+
+    networkLogger.setup();
+    canReader.setup();
+
+    Serial.println("Ready.");
 }
 
 void loop() {
-// write your code here
+    canReader.loop();
+    networkLogger.loop();
 }
