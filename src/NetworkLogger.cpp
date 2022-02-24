@@ -70,6 +70,7 @@ void NetworkLogger::loop() {
 
         udpMessage.write(';');
     }
+    udpMessage.write('\0');
 
     udp.broadcast(udpMessage);
 }
